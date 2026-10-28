@@ -1,13 +1,66 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, Arial, sans-serif; }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 16px;
+  background: linear-gradient(135deg, #eef0ff, #f4fbf8);
+  color: #1f2333;
+  transition: background 0.3s, color 0.3s;
+}
+.app.dark { background: linear-gradient(135deg, #14162a, #1c2135); color: #e8e9f3; }
+
+.card {
+  width: 100%; max-width: 520px;
+  background: #fff; border-radius: 18px; padding: 24px;
+  box-shadow: 0 10px 30px rgba(40, 40, 90, 0.12);
+}
+.app.dark .card { background: #23263b; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); }
+
+.top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.top-buttons { display: flex; gap: 6px; margin-bottom: 16px; }
+h1 { font-size: 26px; margin: 0 0 16px; }
+
+form { display: flex; gap: 8px; margin-bottom: 12px; }
+input[type='text'] {
+  flex: 1; padding: 10px 12px; font-size: 14px;
+  border: 1px solid #dfe1ee; border-radius: 10px; background: transparent; color: inherit;
+}
+.search { width: 100%; margin-bottom: 12px; }
+
+button {
+  padding: 8px 14px; border: 1px solid #dfe1ee; border-radius: 10px;
+  background: #fff; color: #1f2333; cursor: pointer; font-weight: 600;
+}
+.app.dark button { background: #2d3150; color: #e8e9f3; border-color: #3a3f63; }
+form button, .app.dark form button { background: #6a5cff; color: #fff; border: none; }
+
+.tabs {
+  display: flex; gap: 4px; padding: 4px;
+  background: #f3f4fa; border-radius: 12px;
+}
+.app.dark .tabs { background: #1c1f33; }
+.tabs button { flex: 1; border: none; background: transparent; font-weight: 500; }
+.app.dark .tabs button { background: transparent; }
+.tabs button.active, .app.dark .tabs button.active { background: #6a5cff; color: #fff; }
+
+.muted { font-size: 13px; opacity: 0.6; }
+
+ul { list-style: none; padding: 0; margin: 0; }
+li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px; margin-bottom: 8px;
+  border: 1px solid #e6e8f2; border-radius: 12px;
+}
+.app.dark li { border-color: #3a3f63; }
+li span { flex: 1; }
+li button { padding: 2px 8px; font-size: 12px; }
+li.done span { text-decoration: line-through; opacity: 0.5; }
+
+.sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
 }
